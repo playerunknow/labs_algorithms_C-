@@ -1,4 +1,7 @@
-﻿#include <iostream>
+﻿#pragma once
+
+
+#include <iostream>
 #include <vector>
 #include <algorithm>  // для swap
 #include <ctime>      // для вимірювання часу
@@ -123,7 +126,7 @@ void calculation(const vector<int>& random_array) {
     cout << "\n\n\n\n\n\n\n";
 }
 
-int main() {
+void hub_lab_1() {
     vector<int> random_array1 = generate_random_array(1000, 0, 10000);
     vector<int> random_array2 = generate_random_array(2000, 0, 10000);
     vector<int> random_array3 = generate_random_array(3000, 0, 10000);
@@ -137,6 +140,4 @@ int main() {
     calculation(random_array4);
     calculation(random_array5);
     calculation(random_array6);
-
-    return 0;
 }
