@@ -12,12 +12,19 @@
 
 using namespace std;
 
-int main() {
-    
-    hub_lab_1();
+void hub_lab_2()
+{
     lab_2_task_1();
     lab_2_task_2();
     lab_2_task_3();
+}
+
+int main() 
+{
+    
+    hub_lab_1();
+
+    hub_lab_2();
     
     return 0;
 }

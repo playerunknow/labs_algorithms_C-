@@ -1,126 +1,143 @@
-#pragma once
+﻿#pragma once
 
 
 #include <iostream>
 #include <stdexcept>
+#include <stack>
 
-class CircularQueue {
+
+#include <iostream>
+#include <vector>
+#include <limits>
+
+class Stack {
 private:
-    int capacity;
-    int* queue;
-    int front;
-    int rear;
+    vector<int> stack;
 
 public:
-    CircularQueue(int cap) : capacity(cap), front(-1), rear(-1) {
-        queue = new int[capacity];
+    void push(int item) 
+    {
+        stack.push_back(item);
     }
 
-    ~CircularQueue() {
-        delete[] queue;
-    }
-
-    bool is_empty() {
-        return front == -1;
-    }
-
-    bool is_full() {
-        return (rear + 1) % capacity == front;
-    }
-
-    void enqueue(int item) {
-        if (is_full()) {
-            throw std::runtime_error("Queue is full");
-        }
-        if (is_empty()) {
-            front = rear = 0;
+    int pop()
+    {
+        if (!is_empty()) 
+        {
+            int item = stack.back();
+            stack.pop_back();
+            return item;
         }
         else {
-            rear = (rear + 1) % capacity;
+            return -1;
         }
-        queue[rear] = item;
     }
 
-    int dequeue() {
-        if (is_empty()) {
-            throw std::runtime_error("Queue is empty");
-        }
-        int item = queue[front];
-        if (front == rear) {
-            front = rear = -1;  // Queue is now empty
-        }
-        else {
-            front = (front + 1) % capacity;
-        }
-        return item;
+    int peek() 
+    {
+        return is_empty() ? -1 : stack.back();
     }
 
-    int find_min() {
-        if (is_empty()) {
-            throw std::runtime_error("Queue is empty");
-        }
-        int min_value = queue[front];
-        int index = front;
-        while (true) {
-            if (queue[index] < min_value) {
-                min_value = queue[index];
-            }
-            if (index == rear) {
-                break;
-            }
-            index = (index + 1) % capacity;
-        }
-        return min_value;
+    bool is_empty()
+    {
+        return stack.empty();
     }
 
-    int remove_min() {
-        if (is_empty()) {
-            throw std::runtime_error("Queue is empty");
-        }
+    int size() 
+    {
+        return stack.size();
+    }
 
-        int min_value = find_min();
-        int index = front;
-        int min_index = -1;
-
-        // Find index of the minimum value
-        while (true) {
-            if (queue[index] == min_value) {
-                min_index = index;
-                break;
-            }
-            if (index == rear) {
-                break;
-            }
-            index = (index + 1) % capacity;
-        }
-
-        // Remove the minimum value
-        for (int i = min_index; i != (rear + 1) % capacity; i = (i + 1) % capacity) {
-            int next_index = (i + 1) % capacity;
-            if (next_index == front) {
-                break;
-            }
-            queue[i] = queue[next_index];
-        }
-
-        rear = (rear - 1 + capacity) % capacity; // Adjust rear
-        if (rear == -1) {
-            front = -1;  // Queue is now empty
-        }
-        return min_value;
+    const vector<int>& get_stack() const 
+    {
+        return stack;
     }
 };
 
-void lab_2_task_2() 
+class LinkedListWithStacks 
 {
-    CircularQueue cq(5);
-    cq.enqueue(5);
-    cq.enqueue(1);
-    cq.enqueue(3);
-    cq.enqueue(4);
+private:
+    Stack left_stack;
+    Stack right_stack;
 
-    std::cout << "Minimum element: " << cq.find_min() << std::endl;  // Output: Minimum element: 1
-    std::cout << "Removed minimum element: " << cq.remove_min() << std::endl;  // Output: Removed minimum element: 1
-    std::cout << "Minimum element after removal: " << cq.find_min() << std::endl;  // Output: Minimum element after removal: 3
+public:
+    void add_left(int value)
+    {
+        left_stack.push(value);
+    }
 
+    void add_right(int value) 
+    {
+        right_stack.push(value);
+    }
+
+    void move_left() 
+    {
+        if (!right_stack.is_empty())
+        {
+            left_stack.push(right_stack.pop());
+        }
+    }
+
+    void move_right() 
+    {
+        if (!left_stack.is_empty())
+        {
+            right_stack.push(left_stack.pop());
+        }
+    }
+
+    int get_left() 
+    {
+        return left_stack.peek();
+    }
+
+    int get_right() 
+    {
+        return right_stack.peek();
+    }
+
+    bool is_empty() 
+    {
+        return left_stack.is_empty() && right_stack.is_empty();
+    }
+
+    int size()
+    {
+        return left_stack.size() + right_stack.size();
+    }
+
+    int find_min()
+    {
+        int min_value = numeric_limits<int>::max();
+
+        for (int value : left_stack.get_stack()) 
+        {
+            if (value < min_value) 
+            {
+                min_value = value;
+            }
+        }
+
+        for (int value : right_stack.get_stack())
+        {
+            if (value < min_value)
+            {
+                min_value = value;
+            }
+        }
+
+        return min_value == numeric_limits<int>::max() ? -1 : min_value;
+    }
+};
+
+void lab_2_task_2() {
+
+    LinkedListWithStacks ll;
+    ll.add_left(10);
+    ll.add_left(5);
+    ll.add_right(15);
+    ll.add_right(3);
+
+    cout << "Мінімальний елемент: " << ll.find_min() << endl; // Выведет: Мінімальний елемент: 3
 }

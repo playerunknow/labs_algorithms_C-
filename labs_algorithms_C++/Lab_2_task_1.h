@@ -4,7 +4,8 @@
 #include <iostream>
 #include <stdexcept>
 
-class CircularQueue {
+class CircularQueue 
+{
 private:
     int capacity;
     int* queue;
@@ -12,25 +13,30 @@ private:
     int rear;
 
 public:
-    CircularQueue(int cap) : capacity(cap), front(-1), rear(-1) {
+    CircularQueue(int cap) : capacity(cap), front(-1), rear(-1) 
+    {
         queue = new int[capacity];
     }
 
-    ~CircularQueue() {
+    ~CircularQueue()
+    {
         delete[] queue;
     }
 
-    bool is_empty() {
+    bool is_empty() 
+    {
         return front == -1;
     }
 
-    bool is_full() {
+    bool is_full() 
+    {
         return (rear + 1) % capacity == front;
     }
 
-    void enqueue(int item) {
+    void enqueue(int item) 
+    {
         if (is_full()) {
-            throw std::runtime_error("Queue is full");
+            throw runtime_error("Queue is full");
         }
         if (is_empty()) {
             front = rear = 0;
@@ -43,7 +49,7 @@ public:
 
     int dequeue() {
         if (is_empty()) {
-            throw std::runtime_error("Queue is empty");
+            throw runtime_error("Queue is empty");
         }
         int item = queue[front];
         if (front == rear) {
@@ -57,7 +63,7 @@ public:
 
     int find_min() {
         if (is_empty()) {
-            throw std::runtime_error("Queue is empty");
+            throw runtime_error("Queue is empty");
         }
         int min_value = queue[front];
         int index = front;
@@ -75,14 +81,13 @@ public:
 
     int remove_min() {
         if (is_empty()) {
-            throw std::runtime_error("Queue is empty");
+            throw runtime_error("Queue is empty");
         }
 
         int min_value = find_min();
         int index = front;
         int min_index = -1;
 
-        // Find index of the minimum value
         while (true) {
             if (queue[index] == min_value) {
                 min_index = index;
@@ -94,7 +99,6 @@ public:
             index = (index + 1) % capacity;
         }
 
-        // Remove the minimum value
         for (int i = min_index; i != (rear + 1) % capacity; i = (i + 1) % capacity) {
             int next_index = (i + 1) % capacity;
             if (next_index == front) {
@@ -103,9 +107,9 @@ public:
             queue[i] = queue[next_index];
         }
 
-        rear = (rear - 1 + capacity) % capacity; // Adjust rear
+        rear = (rear - 1 + capacity) % capacity; 
         if (rear == -1) {
-            front = -1;  // Queue is now empty
+            front = -1; 
         }
         return min_value;
     }
@@ -122,8 +126,8 @@ void lab_2_task_1()
     cq.enqueue(3);
     cq.enqueue(4);
 
-    std::cout << "Minimum element: " << cq.find_min() << std::endl;  // Output: Minimum element: 1
-    std::cout << "Removed minimum element: " << cq.remove_min() << std::endl;  // Output: Removed minimum element: 1
-    std::cout << "Minimum element after removal: " << cq.find_min() << std::endl;  // Output: Minimum element after removal: 3
+    cout << "Minimum element: " << cq.find_min() << endl;  // Output: Minimum element: 1
+    cout << "Removed minimum element: " << cq.remove_min() << endl;  // Output: Removed minimum element: 1
+    cout << "Minimum element after removal: " << cq.find_min() << endl;  // Output: Minimum element after removal: 3
 
 }
