@@ -37,7 +37,6 @@ public:
         }
     }
 
-
     void display() 
     {
         Node* current = head;
@@ -48,7 +47,6 @@ public:
         }
         cout << endl;
     }
-
 
     int find_min() 
     {

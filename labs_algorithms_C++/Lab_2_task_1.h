@@ -99,7 +99,8 @@ public:
             index = (index + 1) % capacity;
         }
 
-        for (int i = min_index; i != (rear + 1) % capacity; i = (i + 1) % capacity) {
+        for (int i = min_index; i != (rear + 1) % capacity; i = (i + 1) % capacity) 
+        {
             int next_index = (i + 1) % capacity;
             if (next_index == front) {
                 break;

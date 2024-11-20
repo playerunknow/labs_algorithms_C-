@@ -1,16 +1,16 @@
 ﻿#pragma once
 
 
-#include <iostream>
-#include <stdexcept>
-#include <stack>
-
 
 #include <iostream>
 #include <vector>
 #include <limits>
+#include <stdexcept>
+#include <stack>
 
-class Stack {
+
+class Stack 
+{
 private:
     vector<int> stack;
 

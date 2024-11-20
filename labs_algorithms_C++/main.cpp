@@ -1,8 +1,8 @@
 ﻿#include <iostream>
 #include <vector>
-#include <algorithm>  // для swap
-#include <ctime>      // для вимірювання часу
-#include <random>     // для генерації випадкових чисел
+#include <algorithm>  
+#include <ctime>      
+#include <random>  
 
 #include "Lab_1.h"
 #include "Lab_2_task_1.h"
@@ -17,6 +17,35 @@ void hub_lab_2()
     lab_2_task_1();
     lab_2_task_2();
     lab_2_task_3();
+}
+
+void hub_lab_3()
+{
+
+}
+
+
+void hub_lab_4()
+{
+
+}
+
+
+void hub_lab_5()
+{
+
+}
+
+
+void hub_lab_6()
+{
+
+}
+
+
+void hub_lab_7()
+{
+
 }
 
 int main() 

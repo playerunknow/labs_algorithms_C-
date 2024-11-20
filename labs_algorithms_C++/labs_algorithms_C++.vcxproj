@@ -134,6 +134,20 @@
     <ClInclude Include="Lab_2_task_1.h" />
     <ClInclude Include="Lab_2_task_2.h" />
     <ClInclude Include="Lab_2_task_3.h" />
+    <ClInclude Include="Lab_3_task_1.h" />
+    <ClInclude Include="Lab_3_task_2.h" />
+    <ClInclude Include="Lab_4_task_1.h" />
+    <ClInclude Include="Lab_4_task_2.h" />
+    <ClInclude Include="Lab_4_task_3.h" />
+    <ClInclude Include="Lab_5_task_1.h" />
+    <ClInclude Include="Lab_5_task_2.h" />
+    <ClInclude Include="Lab_5_task_3.h" />
+    <ClInclude Include="Lab_6_task_1.h" />
+    <ClInclude Include="Lab_6_task_2.h" />
+    <ClInclude Include="Lab_6_task_3.h" />
+    <ClInclude Include="Lab_7_task_1.h" />
+    <ClInclude Include="Lab_7_task_2.h" />
+    <ClInclude Include="Lab_7_task_3.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
