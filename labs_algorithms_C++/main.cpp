@@ -3,6 +3,7 @@
 #include <algorithm>  
 #include <ctime>      
 #include <random>  
+#include <windows.h>
 
 #include "Lab_1.h"
 #include "Lab_2_task_1.h"
@@ -50,7 +51,8 @@ void hub_lab_7()
 
 int main() 
 {
-    
+    SetConsoleOutputCP(1251);
+
     hub_lab_1();
 
     hub_lab_2();
