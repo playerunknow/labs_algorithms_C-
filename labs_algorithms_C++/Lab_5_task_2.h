@@ -47,7 +47,8 @@ public:
     }
 };
 
-int main() {
+void lab_5_task_2() 
+{
     EncodingTable table;
 
     // Додаємо кодування
@@ -64,5 +65,4 @@ int main() {
     string decoded_text = table.decode(encoded_text);
     cout << "Декодований текст: " << decoded_text << endl;
 
-    return 0;
 }

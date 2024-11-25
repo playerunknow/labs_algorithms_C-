@@ -85,8 +85,8 @@ vector<tuple<int, int, int>> kruskal(Graph& graph) {
 
     return mst;
 }
-
-int main() {
+void lab_7_task_2()
+{
     Graph g(4);
     g.addEdge(0, 1, 10);
     g.addEdge(0, 2, 6);
@@ -107,5 +107,4 @@ int main() {
     }
     cout << "Загальна вартість мінімального остового дерева: " << totalWeight << "\n";
 
-    return 0;
 }

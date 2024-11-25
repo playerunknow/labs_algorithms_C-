@@ -76,7 +76,8 @@ public:
     }
 };
 
-int main() {
+void lab_3_task_1()
+{
     ArrayTree tree;
     tree.add(1);
     tree.add(2);
@@ -90,5 +91,4 @@ int main() {
     cout << tree.find_top_to_bottom(3) << endl;  // Пошук зверху вниз
     cout << tree.find_bottom_to_top(4) << endl;  // Пошук знизу вгору
 
-    return 0;
 }

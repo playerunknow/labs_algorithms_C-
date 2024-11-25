@@ -33,7 +33,8 @@ public:
     }
 };
 
-int main() {
+void lab_7_task_1()
+{
     Graph graph(5); // Створюємо граф з 5 вершинами
     graph.add_edge(0, 1);
     graph.add_edge(0, 4);
@@ -43,5 +44,5 @@ int main() {
     graph.add_edge(3, 4);
 
     graph.display(); // Виводимо матрицю суміжності
-    return 0;
+
 }

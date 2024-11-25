@@ -1,6 +1,6 @@
 #pragma once
 
-
+#include <windows.h>
 #include <iostream>
 #include <stdexcept>
 
@@ -120,6 +120,8 @@ public:
 
 void lab_2_task_1() 
 {
+    SetConsoleOutputCP(1251);
+
 
     CircularQueue cq(5);
     cq.enqueue(5);

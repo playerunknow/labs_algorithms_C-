@@ -81,6 +81,6 @@ void lab_2_task_2()
     ll.add_right(15);
     ll.add_right(3);
 
-    cout << "Мінімальний елемент: " << ll.find_min() << endl;  // Виведе: Мінімальний елемент: 3
+    cout << "Minimum element: " << ll.find_min() << endl;  // Виведе: Мінімальний елемент: 3
 
 }

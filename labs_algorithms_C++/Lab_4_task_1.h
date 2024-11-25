@@ -95,7 +95,8 @@ public:
     }
 };
 
-int main() {
+void lab_4_task_1() 
+{
     BitSet bitSet1(10);
     BitSet bitSet2(10);
 

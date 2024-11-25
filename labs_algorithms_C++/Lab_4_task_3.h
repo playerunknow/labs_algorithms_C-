@@ -55,8 +55,8 @@ unordered_map<string, int> vote_on_issue(const string& issue, const unordered_ma
 }
 
 // Головна функція
-int main() {
+void lab_4_task_3()
+{
     unordered_map<int, string> votes = { {1, "за"}, {3, "проти"}, {2, "проти"} };
     vote_on_issue("Питання про бюджет", votes);
-    return 0;
 }

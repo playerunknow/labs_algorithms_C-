@@ -74,7 +74,8 @@ public:
     }
 };
 
-int main() {
+void lab_5_task_1() 
+{
     WeightedTree tree;
     tree.insert("apple", 1);
     tree.insert("banana", 2);
@@ -89,5 +90,4 @@ int main() {
     nextWord = tree.findNext("cherry");
     cout << "Наступне слово після 'cherry': " << nextWord << endl;
 
-    return 0;
 }

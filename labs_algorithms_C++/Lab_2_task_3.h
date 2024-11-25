@@ -77,9 +77,9 @@ void lab_2_task_3()
     dll.append(15);
     dll.append(7);
 
-    cout << "Список:" << endl;
+    cout << "list:" << endl;
     dll.display();
 
     int min_value = dll.find_min();
-    cout << "Мінімальний елемент у списку: " << min_value << endl;
+    cout << "Minimum element in list: " << min_value << endl;
 }

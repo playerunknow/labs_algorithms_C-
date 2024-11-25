@@ -55,7 +55,8 @@ vector<tuple<int, int, char>> lz77_compress(const string& data) {
     return compressed;
 }
 
-int main() {
+void lab_5_task_3() 
+{
     string data = "ABABABABA";
     auto compressed_data = lz77_compress(data);
 
@@ -70,5 +71,4 @@ int main() {
     }
     cout << endl;
 
-    return 0;
 }

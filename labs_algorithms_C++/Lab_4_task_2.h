@@ -59,7 +59,8 @@ public:
     }
 };
 
-int main() {
+void lab_4_task_2() 
+{
     OrderedSet ordered_set;
     ordered_set.add(5);
     ordered_set.add(3);
@@ -73,5 +74,4 @@ int main() {
     ordered_set.remove(3);
     cout << ordered_set.to_string() << endl; // Виведе: {5, 8}
 
-    return 0;
 }

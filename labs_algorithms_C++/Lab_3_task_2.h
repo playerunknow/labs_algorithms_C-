@@ -160,7 +160,8 @@ string huffmanDecoding(const string& encodedData, HuffmanNode* huffmanTree) {
 }
 
 
-int main() {
+void lab_3_task_2() 
+{
     string data = "hello huffman";
     cout << "Original data: " << data << endl;
 
@@ -175,5 +176,4 @@ int main() {
     string decodedData = huffmanDecoding(encodedData, huffmanTree);
     cout << "Decoded data: " << decodedData << endl;
 
-    return 0;
 }
