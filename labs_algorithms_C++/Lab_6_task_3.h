@@ -10,14 +10,17 @@ private:
     vector<vector<int>> adj_list;
 
     // Допоміжний метод для обходу в глибину
-    void dfs_util(int vertex, vector<bool>& visited) {
+    void dfs_util(int vertex, vector<bool>& visited) 
+    {
         // Позначаємо поточну вершину як відвідану
         visited[vertex] = true;
         cout << vertex << " ";
 
         // Проходимо всіх сусідів вершини
-        for (int neighbor : adj_list[vertex]) {
-            if (!visited[neighbor]) {
+        for (int neighbor : adj_list[vertex]) 
+        {
+            if (!visited[neighbor]) 
+            {
                 dfs_util(neighbor, visited);
             }
         }
@@ -25,20 +28,24 @@ private:
 
 public:
     // Конструктор для ініціалізації списку суміжності
-    Graph_3(int num_vertices) {
+    Graph_3(int num_vertices) 
+    {
         this->num_vertices = num_vertices;
         adj_list.resize(num_vertices);
     }
 
     // Метод для додавання орієнтованого ребра
-    void add_edge(int src, int dest) {
-        if (src < num_vertices && dest < num_vertices) {
+    void add_edge(int src, int dest) 
+    {
+        if (src < num_vertices && dest < num_vertices)
+        {
             adj_list[src].push_back(dest);
         }
     }
 
     // Метод для запуску обходу в глибину
-    void dfs(int start_vertex) {
+    void dfs(int start_vertex) 
+    {
         // Ініціалізуємо список для відстеження відвіданих вершин
         vector<bool> visited(num_vertices, false);
         // Запускаємо DFS з початкової вершини

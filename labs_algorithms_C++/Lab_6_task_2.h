@@ -11,33 +11,42 @@ private:
 
 public:
     // Конструктор для ініціалізації списку суміжності
-    Graph_2(int num_vertices) {
+    Graph_2(int num_vertices) 
+    {
         this->num_vertices = num_vertices;
         adj_list.resize(num_vertices);
     }
 
     // Метод для додавання орієнтованого ребра
-    void add_edge(int src, int dest) {
-        if (src < num_vertices && dest < num_vertices) {
+    void add_edge(int src, int dest) 
+    {
+        if (src < num_vertices && dest < num_vertices)
+        {
             adj_list[src].push_back(dest);
         }
     }
 
     // Метод для видалення орієнтованого ребра
-    void remove_edge(int src, int dest) {
-        if (src < num_vertices) {
+    void remove_edge(int src, int dest) 
+    {
+        if (src < num_vertices) 
+        {
             auto it = find(adj_list[src].begin(), adj_list[src].end(), dest);
-            if (it != adj_list[src].end()) {
+            if (it != adj_list[src].end())
+            {
                 adj_list[src].erase(it);
             }
         }
     }
 
     // Метод для виведення списку суміжності
-    void display() const {
-        for (int vertex = 0; vertex < num_vertices; ++vertex) {
+    void display() const 
+    {
+        for (int vertex = 0; vertex < num_vertices; ++vertex)
+        {
             cout << "top " << vertex << ": ";
-            for (int dest : adj_list[vertex]) {
+            for (int dest : adj_list[vertex]) 
+            {
                 cout << dest << " ";
             }
             cout << endl;

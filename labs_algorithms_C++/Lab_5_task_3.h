@@ -8,7 +8,8 @@
 
 using namespace std;
 
-vector<tuple<int, int, char>> lz77_compress(const string& data) {
+vector<tuple<int, int, char>> lz77_compress(const string& data) 
+{
     vector<tuple<int, int, char>> compressed;
     int i = 0;
     int n = data.size();
@@ -22,31 +23,37 @@ vector<tuple<int, int, char>> lz77_compress(const string& data) {
         int search_end = i;
 
         // Пошук найкращого збігу
-        for (int j = search_start; j < search_end; j++) {
+        for (int j = search_start; j < search_end; j++)
+        {
             int k = 0;
 
             // Поки символи збігаються
-            while ((i + k < n) && (data[j + k] == data[i + k])) {
+            while ((i + k < n) && (data[j + k] == data[i + k])) 
+            {
                 k++;
-                if ((j + k) >= i) { // щоб уникнути посилання на себе
+                if ((j + k) >= i)
+                { // щоб уникнути посилання на себе
                     break;
                 }
             }
 
             // Якщо знайдено кращий збіг
-            if (k > static_cast<int>(match.size())) {
+            if (k > static_cast<int>(match.size())) 
+            {
                 match = data.substr(j, k);
                 match_position = j;
             }
         }
 
         // Додати до стисненого результату
-        if (!match.empty()) {
+        if (!match.empty()) 
+        {
             char next_char = (i + match.size() < n) ? data[i + match.size()] : '\0';
             compressed.emplace_back(match_position, match.size(), next_char);
             i += match.size() + 1; // переходимо до наступного символу
         }
-        else {
+        else 
+        {
             compressed.emplace_back(0, 0, data[i]); // не знайдено збігу
             i++;
         }

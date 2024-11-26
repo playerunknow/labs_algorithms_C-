@@ -14,43 +14,53 @@ private:
 
 public:
     // Додає елемент до множини, якщо його ще немає
-    void add(int element) {
-        if (!contains(element)) {
+    void add(int element) 
+    {
+        if (!contains(element))
+        {
             elements.push_back(element);
             sort(elements.begin(), elements.end()); // підтримуємо впорядкованість
         }
     }
 
     // Видаляє елемент з множини
-    void remove(int element) {
+    void remove(int element)
+    {
         auto it = find(elements.begin(), elements.end(), element);
-        if (it != elements.end()) {
+        if (it != elements.end()) 
+        {
             elements.erase(it);
         }
     }
 
     // Перевіряє, чи містить множина заданий елемент
-    bool contains(int element) const {
+    bool contains(int element) const
+    {
         return find(elements.begin(), elements.end(), element) != elements.end();
     }
 
     // Повертає кількість елементів у множині
-    size_t size() const {
+    size_t size() const 
+    {
         return elements.size();
     }
 
     // Повертає список елементів множини
-    vector<int> to_list() const {
+    vector<int> to_list() const 
+    {
         return elements;
     }
 
     // Повертає строкове представлення множини
-    string to_string() const {
+    string to_string() const 
+    {
         ostringstream oss;
         oss << "{";
-        for (size_t i = 0; i < elements.size(); ++i) {
+        for (size_t i = 0; i < elements.size(); ++i)
+        {
             oss << elements[i];
-            if (i < elements.size() - 1) {
+            if (i < elements.size() - 1)
+            {
                 oss << ", ";
             }
         }

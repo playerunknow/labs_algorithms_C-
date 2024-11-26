@@ -12,29 +12,37 @@ private:
 
 public:
     // Конструктор для ініціалізації графа
-    Graph_1(int num_vertices) {
+    Graph_1(int num_vertices) 
+    {
         this->num_vertices = num_vertices;
         adj_matrix = vector<vector<int>>(num_vertices, vector<int>(num_vertices, 0));
     }
 
     // Додаємо орієнтоване ребро
-    void add_edge(int src, int dest) {
-        if (src < num_vertices && dest < num_vertices) {
+    void add_edge(int src, int dest) 
+    {
+        if (src < num_vertices && dest < num_vertices) 
+        {
             adj_matrix[src][dest] = 1;
         }
     }
 
     // Видаляємо орієнтоване ребро
-    void remove_edge(int src, int dest) {
-        if (src < num_vertices && dest < num_vertices) {
+    void remove_edge(int src, int dest)
+    {
+        if (src < num_vertices && dest < num_vertices)
+        {
             adj_matrix[src][dest] = 0;
         }
     }
 
     // Виведення матриці суміжності
-    void display() {
-        for (const auto& row : adj_matrix) {
-            for (const auto& val : row) {
+    void display() 
+    {
+        for (const auto& row : adj_matrix) 
+        {
+            for (const auto& val : row)
+            {
                 cout << val << " ";
             }
             cout << endl;

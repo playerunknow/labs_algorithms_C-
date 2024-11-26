@@ -12,33 +12,41 @@ private:
     map<string, char> decoding;
 
 public:
-    void add_encoding(char ch, const string& code) {
+    void add_encoding(char ch, const string& code) 
+    {
         // Додає кодування символу
         encoding[ch] = code;
         decoding[code] = ch;
     }
 
-    string encode(const string& text) {
+    string encode(const string& text) 
+    {
         // Кодує текст, перетворюючи кожен символ у відповідний код
         string encoded_text;
-        for (char ch : text) {
-            if (encoding.count(ch)) {
+        for (char ch : text) 
+        {
+            if (encoding.count(ch)) 
+            {
                 encoded_text += encoding[ch];
             }
-            else {
+            else 
+            {
                 encoded_text += ch; // Залишає символ без змін, якщо кодування не знайдено
             }
         }
         return encoded_text;
     }
 
-    string decode(const string& encoded_text) {
+    string decode(const string& encoded_text) 
+    {
         // Декодує закодований текст, перетворюючи коди назад у символи
         string decoded_text;
         string code;
-        for (char ch : encoded_text) {
+        for (char ch : encoded_text)
+        {
             code += ch;
-            if (decoding.count(code)) {
+            if (decoding.count(code)) 
+            {
                 decoded_text += decoding[code];
                 code.clear(); // Скидаємо код, коли він успішно декодований
             }

@@ -11,21 +11,26 @@ private:
 
 public:
     // Конструктор
-    Graph_7_1(int vertices) {
+    Graph_7_1(int vertices)
+    {
         this->vertices = vertices;
         adj_matrix = vector<vector<int>>(vertices, vector<int>(vertices, 0));
     }
 
     // Додавання ребра між вершинами u та v
-    void add_edge(int u, int v) {
+    void add_edge(int u, int v) 
+    {
         adj_matrix[u][v] = 1;
         adj_matrix[v][u] = 1; // Неорієнтований граф
     }
 
     // Виведення матриці суміжності
-    void display() {
-        for (const auto& row : adj_matrix) {
-            for (int val : row) {
+    void display() 
+    {
+        for (const auto& row : adj_matrix) 
+        {
+            for (int val : row) 
+            {
                 cout << val << " ";
             }
             cout << endl;

@@ -18,37 +18,47 @@ public:
 
     // Додавання елемента
     void add(int element) {
-        if (element >= 0 && element < max_size) {
+        if (element >= 0 && element < max_size) 
+        {
             set |= (1 << element);
         }
-        else {
+        else
+        {
             throw invalid_argument("Element " + to_string(element) + " is out of bounds.");
         }
     }
 
     // Видалення елемента
-    void remove(int element) {
-        if (element >= 0 && element < max_size) {
+    void remove(int element) 
+    {
+        if (element >= 0 && element < max_size) 
+        {
             set &= ~(1 << element);
         }
-        else {
+        else 
+        {
             throw invalid_argument("Element " + to_string(element) + " is out of bounds.");
         }
     }
 
     // Перевірка наявності елемента
-    bool contains(int element) const {
-        if (element >= 0 && element < max_size) {
+    bool contains(int element) const 
+    {
+        if (element >= 0 && element < max_size) 
+        {
             return (set & (1 << element)) != 0;
         }
-        else {
+        else 
+        {
             throw invalid_argument("Element " + to_string(element) + " is out of bounds.");
         }
     }
 
     // Об'єднання множин
-    BitSet unionSet(const BitSet& other) const {
-        if (max_size != other.max_size) {
+    BitSet unionSet(const BitSet& other) const 
+    {
+        if (max_size != other.max_size)
+        {
             throw invalid_argument("Sets must have the same max size.");
         }
         BitSet result(max_size);
@@ -57,8 +67,10 @@ public:
     }
 
     // Перетин множин
-    BitSet intersection(const BitSet& other) const {
-        if (max_size != other.max_size) {
+    BitSet intersection(const BitSet& other) const 
+    {
+        if (max_size != other.max_size) 
+        {
             throw invalid_argument("Sets must have the same max size.");
         }
         BitSet result(max_size);
@@ -67,8 +79,10 @@ public:
     }
 
     // Різниця множин
-    BitSet difference(const BitSet& other) const {
-        if (max_size != other.max_size) {
+    BitSet difference(const BitSet& other) const
+    {
+        if (max_size != other.max_size) 
+        {
             throw invalid_argument("Sets must have the same max size.");
         }
         BitSet result(max_size);
@@ -77,13 +91,17 @@ public:
     }
 
     // Перетворення в строку
-    string toString() const {
+    string toString() const 
+    {
         stringstream ss;
         ss << "{";
         bool first = true;
-        for (int i = 0; i < max_size; ++i) {
-            if (contains(i)) {
-                if (!first) {
+        for (int i = 0; i < max_size; ++i) 
+        {
+            if (contains(i))
+            {
+                if (!first) 
+                {
                     ss << ", ";
                 }
                 ss << i;
