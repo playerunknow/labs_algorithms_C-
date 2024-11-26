@@ -4,7 +4,8 @@
 #include <vector>
 using namespace std;
 
-class Graph_3 {
+class Graph_3 
+{
 private:
     int num_vertices;
     vector<vector<int>> adj_list;

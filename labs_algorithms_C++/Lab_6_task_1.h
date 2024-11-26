@@ -5,7 +5,8 @@
 
 using namespace std;
 
-class Graph_1 {
+class Graph_1 
+{
 private:
     int num_vertices;
     vector<vector<int>> adj_matrix;

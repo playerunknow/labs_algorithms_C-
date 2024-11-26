@@ -17,7 +17,8 @@ unordered_map<int, unordered_map<string, string>> deputies =
 };
 
 // Функція для проведення голосування
-unordered_map<string, int> vote_on_issue(const string& issue, const unordered_map<int, string>& votes) {
+unordered_map<string, int> vote_on_issue(const string& issue, const unordered_map<int, string>& votes) 
+{
     cout << "Voting on a question: " << issue << endl;
 
     // Оновлення голосів

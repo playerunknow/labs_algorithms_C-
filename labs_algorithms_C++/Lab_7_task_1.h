@@ -4,7 +4,8 @@
 #include <vector>
 using namespace std;
 
-class Graph_7_1 {
+class Graph_7_1 
+{
 private:
     int vertices; // Кількість вершин
     vector<vector<int>> adj_matrix; // Матриця суміжності
