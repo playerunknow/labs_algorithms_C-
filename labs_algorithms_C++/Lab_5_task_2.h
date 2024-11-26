@@ -59,10 +59,10 @@ void lab_5_task_2()
     // Кодуємо текст
     string text = "ABCA";
     string encoded_text = table.encode(text);
-    cout << "Кодований текст: " << encoded_text << endl;
+    cout << "Encoded text: " << encoded_text << endl;
 
     // Декодуємо текст
     string decoded_text = table.decode(encoded_text);
-    cout << "Декодований текст: " << decoded_text << endl;
+    cout << "Decoded text: " << decoded_text << endl;
 
 }

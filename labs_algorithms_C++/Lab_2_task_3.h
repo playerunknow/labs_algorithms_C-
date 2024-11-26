@@ -1,35 +1,36 @@
 ﻿#pragma once
 
-
 #include <iostream>
+
+using namespace std;
 
 class Node {
 public:
-    int data;       
-    Node* next;     
-    Node* prev;     
+    int data;
+    Node* next;
+    Node* prev;
 
     Node(int value) : data(value), next(nullptr), prev(nullptr) {}
 };
 
 class DoublyLinkedList {
 private:
-    Node* head;     
-    Node* tail;     
+    Node* head;
+    Node* tail;
 
 public:
     DoublyLinkedList() : head(nullptr), tail(nullptr) {}
 
 
-    void append(int data) 
+    void append(int data)
     {
         Node* new_node = new Node(data);
-        if (head == nullptr) 
-        { 
+        if (head == nullptr)
+        {
             head = new_node;
             tail = new_node;
         }
-        else 
+        else
         {
             tail->next = new_node;
             new_node->prev = tail;
@@ -37,10 +38,10 @@ public:
         }
     }
 
-    void display() 
+    void display()
     {
         Node* current = head;
-        while (current) 
+        while (current)
         {
             cout << current->data << ' ';
             current = current->next;
@@ -48,17 +49,17 @@ public:
         cout << endl;
     }
 
-    int find_min() 
+    int find_min()
     {
-        if (head == nullptr) 
-        {  
-            return -1;  
+        if (head == nullptr)
+        {
+            return -1;
         }
         int min_value = head->data;
         Node* current = head->next;
-        while (current) 
+        while (current)
         {
-            if (current->data < min_value) 
+            if (current->data < min_value)
             {
                 min_value = current->data;
             }
@@ -69,7 +70,7 @@ public:
 };
 
 // Example usage
-void lab_2_task_3() 
+void lab_2_task_3()
 {
     DoublyLinkedList dll;
     dll.append(10);

@@ -4,14 +4,14 @@
 #include <vector>
 using namespace std;
 
-class Graph {
+class Graph_2 {
 private:
     int num_vertices;
     vector<vector<int>> adj_list;
 
 public:
     // Конструктор для ініціалізації списку суміжності
-    Graph(int num_vertices) {
+    Graph_2(int num_vertices) {
         this->num_vertices = num_vertices;
         adj_list.resize(num_vertices);
     }
@@ -36,7 +36,7 @@ public:
     // Метод для виведення списку суміжності
     void display() const {
         for (int vertex = 0; vertex < num_vertices; ++vertex) {
-            cout << "Вершина " << vertex << ": ";
+            cout << "top " << vertex << ": ";
             for (int dest : adj_list[vertex]) {
                 cout << dest << " ";
             }
@@ -45,12 +45,11 @@ public:
     }
 };
 
-void lab_6_task_2() 
+void lab_6_task_2()
 {
-    Graph graph(5); // Створюємо граф із 5 вершинами
+    Graph_2 graph(5); // Створюємо граф із 5 вершинами
     graph.add_edge(0, 1); // Додаємо дугу з вершини 0 до вершини 1
     graph.add_edge(1, 2); // Додаємо дугу з вершини 1 до вершини 2
     graph.add_edge(3, 4); // Додаємо дугу з вершини 3 до вершини 4
     graph.display();      // Виводимо списки суміжних вершин
-
 }

@@ -5,12 +5,12 @@
 
 using namespace std;
 
-class Graph {
+class Graph_7_3 {
 public:
     int vertices; // Кількість вершин
     vector<tuple<int, int, int>> edges; // Список ребер (вага, u, v)
 
-    Graph(int vertices) {
+    Graph_7_3(int vertices) {
         this->vertices = vertices;
     }
 
@@ -65,7 +65,7 @@ public:
     }
 };
 
-vector<tuple<int, int, int>> kruskal(Graph& graph) {
+vector<tuple<int, int, int>> kruskal(Graph_7_3& graph) {
     vector<tuple<int, int, int>> mst; // Список ребер мінімального остового дерева
     UnionFind uf(graph.vertices);
 
@@ -85,9 +85,10 @@ vector<tuple<int, int, int>> kruskal(Graph& graph) {
 
     return mst;
 }
-void lab_7_task_2()
+
+void lab_7_task_3()
 {
-    Graph g(4);
+    Graph_7_3 g(4);
     g.addEdge(0, 1, 10);
     g.addEdge(0, 2, 6);
     g.addEdge(0, 3, 5);
@@ -97,14 +98,13 @@ void lab_7_task_2()
     auto mst = kruskal(g);
 
     // Виведення результату
-    cout << "Мінімальне остове дерево:\n";
+    cout << "Minimum spanning tree:\n";
     int totalWeight = 0;
     for (auto& edge : mst) {
         int weight, u, v;
         tie(weight, u, v) = edge;
-        cout << "Ребро " << u << "-" << v << " з вагою " << weight << "\n";
+        cout << "ridge " << u << "-" << v << " with weight " << weight << "\n";
         totalWeight += weight;
     }
-    cout << "Загальна вартість мінімального остового дерева: " << totalWeight << "\n";
-
+    cout << "Total cost of minimum core tree: " << totalWeight << "\n";
 }

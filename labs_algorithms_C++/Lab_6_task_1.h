@@ -5,14 +5,14 @@
 
 using namespace std;
 
-class Graph {
+class Graph_1 {
 private:
     int num_vertices;
     vector<vector<int>> adj_matrix;
 
 public:
     // Конструктор для ініціалізації графа
-    Graph(int num_vertices) {
+    Graph_1(int num_vertices) {
         this->num_vertices = num_vertices;
         adj_matrix = vector<vector<int>>(num_vertices, vector<int>(num_vertices, 0));
     }
@@ -42,13 +42,11 @@ public:
     }
 };
 
-void lab_6_task_1() 
+void lab_6_task_1()
 {
-    Graph graph(5);  // Створюємо граф із 5 вершинами
+    Graph_1 graph(5);  // Створюємо граф із 5 вершинами
     graph.add_edge(0, 1);  // Додаємо дугу з вершини 0 до вершини 1
     graph.add_edge(1, 2);  // Додаємо дугу з вершини 1 до вершини 2
     graph.add_edge(3, 4);  // Додаємо дугу з вершини 3 до вершини 4
     graph.display();       // Виводимо матрицю суміжності
-
-
 }

@@ -60,8 +60,8 @@ void lab_5_task_3()
     string data = "ABABABABA";
     auto compressed_data = lz77_compress(data);
 
-    cout << "Дані до стиснення: " << data << endl;
-    cout << "Стиснені дані: ";
+    cout << "Data before compression: " << data << endl;
+    cout << "Data after compression: ";
     for (const auto& item : compressed_data) {
         int position = get<0>(item);
         int length = get<1>(item);

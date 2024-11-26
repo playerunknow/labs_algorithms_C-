@@ -16,7 +16,7 @@ using namespace std;
         func; \
         clock_t end_time = clock(); \
         double execution_time = double(end_time - start_time) / CLOCKS_PER_SEC; \
-        cout << "execution_time " #func ": " << execution_time << " секунд\n\n"; \
+        cout << "execution_time " #func ": " << execution_time << " seconds\n\n"; \
     }
 
 // Функція для генерації випадкового масиву

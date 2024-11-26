@@ -4,7 +4,7 @@
 #include <vector>
 using namespace std;
 
-class Graph {
+class Graph_3 {
 private:
     int num_vertices;
     vector<vector<int>> adj_list;
@@ -25,7 +25,7 @@ private:
 
 public:
     // Конструктор для ініціалізації списку суміжності
-    Graph(int num_vertices) {
+    Graph_3(int num_vertices) {
         this->num_vertices = num_vertices;
         adj_list.resize(num_vertices);
     }
@@ -46,9 +46,9 @@ public:
     }
 };
 
-void lab_6_task_3() 
+void lab_6_task_3()
 {
-    Graph graph(5); // Створюємо граф із 5 вершинами
+    Graph_3 graph(5); // Створюємо граф із 5 вершинами
     graph.add_edge(0, 1); // Додаємо дугу з вершини 0 до вершини 1
     graph.add_edge(0, 2); // Додаємо дугу з вершини 0 до вершини 2
     graph.add_edge(1, 3); // Додаємо дугу з вершини 1 до вершини 3
@@ -56,8 +56,6 @@ void lab_6_task_3()
     graph.add_edge(3, 4); // Додаємо дугу з вершини 3 до вершини 4
 
     // Викликаємо обхід у глибину, починаючи з вершини 0
-    cout << "Обхід графа у глибину починаючи з вершини 0:" << endl;
+    cout << "Depth-first traversal of the graph starting from vertex 0:" << endl;
     graph.dfs(0);
-
-
 }

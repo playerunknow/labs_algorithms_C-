@@ -4,14 +4,14 @@
 #include <vector>
 using namespace std;
 
-class Graph {
+class Graph_7_1 {
 private:
     int vertices; // Кількість вершин
     vector<vector<int>> adj_matrix; // Матриця суміжності
 
 public:
     // Конструктор
-    Graph(int vertices) {
+    Graph_7_1(int vertices) {
         this->vertices = vertices;
         adj_matrix = vector<vector<int>>(vertices, vector<int>(vertices, 0));
     }
@@ -35,7 +35,7 @@ public:
 
 void lab_7_task_1()
 {
-    Graph graph(5); // Створюємо граф з 5 вершинами
+    Graph_7_1 graph(5); // Створюємо граф з 5 вершинами
     graph.add_edge(0, 1);
     graph.add_edge(0, 4);
     graph.add_edge(1, 2);
@@ -44,5 +44,4 @@ void lab_7_task_1()
     graph.add_edge(3, 4);
 
     graph.display(); // Виводимо матрицю суміжності
-
 }

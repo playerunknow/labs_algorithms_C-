@@ -29,10 +29,10 @@ public:
         {
             if (tree[i] == value) 
             {
-                return "Елемент " + to_string(value) + " знайдено на позиції " + to_string(i) + ".";
+                return "Element " + to_string(value) + " Found on position " + to_string(i) + ".";
             }
         }
-        return "Елемент " + to_string(value) + " не знайдено.";
+        return "Element " + to_string(value) + " Not found.";
     }
 
     string find_top_to_bottom(int value) 
@@ -50,7 +50,7 @@ public:
             {
                 if (tree[idx] == value) 
                 {
-                    return "Елемент " + to_string(value) + " знайдено на позиції " + to_string(idx) + ".";
+                    return "Element " + to_string(value) + " Found on position " + to_string(idx) + ".";
                 }
                 // Додаємо лівого та правого нащадка до черги
                 int left_child = 2 * idx + 1;
@@ -59,7 +59,7 @@ public:
                 queue.push(right_child);
             }
         }
-        return "Елемент " + to_string(value) + " не знайдено.";
+        return "Element " + to_string(value) + " Not found.";
     }
 
     string find_bottom_to_top(int value) 
@@ -69,10 +69,10 @@ public:
         {
             if (tree[i] == value) 
             {
-                return "Елемент " + to_string(value) + " знайдено на позиції " + to_string(i) + ".";
+                return "Element " + to_string(value) + " Found on position " + to_string(i) + ".";
             }
         }
-        return "Елемент " + to_string(value) + " не знайдено.";
+        return "Element " + to_string(value) + " Not found.";
     }
 };
 

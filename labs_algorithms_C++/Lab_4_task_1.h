@@ -108,17 +108,16 @@ void lab_4_task_1()
     bitSet2.add(4);
     bitSet2.add(5);
 
-    cout << "Множина 1: " << bitSet1.toString() << endl;
-    cout << "Множина 2: " << bitSet2.toString() << endl;
+    cout << "Set 1: " << bitSet1.toString() << endl;
+    cout << "Set 2: " << bitSet2.toString() << endl;
 
     BitSet unionSet = bitSet1.unionSet(bitSet2);
-    cout << "Об'єднання: " << unionSet.toString() << endl;
+    cout << "union: " << unionSet.toString() << endl;
 
     BitSet intersectionSet = bitSet1.intersection(bitSet2);
-    cout << "Перетин: " << intersectionSet.toString() << endl;
+    cout << "intersection: " << intersectionSet.toString() << endl;
 
     BitSet differenceSet = bitSet1.difference(bitSet2);
-    cout << "Різниця: " << differenceSet.toString() << endl;
+    cout << "Difference: " << differenceSet.toString() << endl;
 
-    return 0;
 }

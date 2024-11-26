@@ -4,24 +4,24 @@
 #include <string>
 using namespace std;
 
-class Node {
+class Node_5_3 {
 public:
     string value; // Значення слова
     int weight;   // Вага слова
-    Node* left;   // Лівий підвузол
-    Node* right;  // Правий підвузол
+    Node_5_3* left;   // Лівий підвузол
+    Node_5_3* right;  // Правий підвузол
 
-    Node(const string& val) : value(val), weight(0), left(nullptr), right(nullptr) {}
+    Node_5_3(const string& val) : value(val), weight(0), left(nullptr), right(nullptr) {}
 };
 
 class WeightedTree {
 private:
-    Node* root;
+    Node_5_3* root;
 
-    void insertRecursive(Node* node, const string& value, int weight) {
+    void insertRecursive(Node_5_3* node, const string& value, int weight) {
         if (value < node->value) {
             if (node->left == nullptr) {
-                node->left = new Node(value);
+                node->left = new Node_5_3(value);
                 node->left->weight = weight;
             }
             else {
@@ -30,7 +30,7 @@ private:
         }
         else if (value > node->value) {
             if (node->right == nullptr) {
-                node->right = new Node(value);
+                node->right = new Node_5_3(value);
                 node->right->weight = weight;
             }
             else {
@@ -43,7 +43,7 @@ private:
         }
     }
 
-    string findNextRecursive(Node* node, const string& value) {
+    string findNextRecursive(Node_5_3* node, const string& value) {
         if (node == nullptr) {
             return "";
         }
@@ -61,7 +61,7 @@ public:
 
     void insert(const string& value, int weight) {
         if (root == nullptr) {
-            root = new Node(value);
+            root = new Node_5_3(value);
             root->weight = weight;
         }
         else {
@@ -74,7 +74,7 @@ public:
     }
 };
 
-void lab_5_task_1() 
+void lab_5_task_1()
 {
     WeightedTree tree;
     tree.insert("apple", 1);
@@ -82,12 +82,11 @@ void lab_5_task_1()
     tree.insert("cherry", 3);
 
     string nextWord = tree.findNext("apple");
-    cout << "Наступне слово після 'apple': " << nextWord << endl;
+    cout << "next after 'apple': " << nextWord << endl;
 
     nextWord = tree.findNext("banana");
-    cout << "Наступне слово після 'banana': " << nextWord << endl;
+    cout << "next after 'banana': " << nextWord << endl;
 
     nextWord = tree.findNext("cherry");
-    cout << "Наступне слово після 'cherry': " << nextWord << endl;
-
+    cout << "next after 'cherry': " << nextWord << endl;
 }
