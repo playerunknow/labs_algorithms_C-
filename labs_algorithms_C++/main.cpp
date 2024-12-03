@@ -45,6 +45,7 @@ void hub_lab_2()
     lab_2_task_3();
 }
 
+
 void hub_lab_3()
 {
     cout << "\n";
@@ -54,7 +55,6 @@ void hub_lab_3()
     lab_3_task_2();
     cout << "Task_3" << endl;
 }
-
 
 
 void hub_lab_4()
@@ -118,23 +118,24 @@ int main()
     
     cout << "**********Lab_3**********\n";
     hub_lab_3();
-    
+    */
     
     cout << "**********Lab_4**********\n";
     hub_lab_4();
     
-   
+    /*
     cout << "**********Lab_5**********\n";
     hub_lab_5();
     
     
     cout << "**********Lab_6**********\n";
     hub_lab_6();
-    */
+    
     
     cout << "**********Lab_7**********\n";
     hub_lab_7();
-    /*
-    */
+    
+   */
+    
     return 0;
 }

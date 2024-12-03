@@ -1,141 +1,153 @@
 ﻿#pragma once
 
 #include <iostream>
+#include <vector>
 #include <stdexcept>
 #include <string>
 #include <sstream>
 
 using namespace std;
 
-class BitSet {
+class BinaryVectorSet 
+{
 private:
-    int max_size; // Максимальний розмір множини
-    unsigned int set; // Бітовий вектор
+    vector<int> vector;
+    size_t universe_size;
 
 public:
     // Конструктор
-    BitSet(int maxSize) : max_size(maxSize), set(0) {}
+    BinaryVectorSet(size_t universe_size) : universe_size(universe_size), vector(universe_size, 0) {}
 
     // Додавання елемента
-    void add(int element) {
-        if (element >= 0 && element < max_size) 
+    void add(size_t element) 
+    {
+        if (element < universe_size) 
         {
-            set |= (1 << element);
+            vector[element] = 1;
         }
-        else
+        else 
         {
-            throw invalid_argument("Element " + to_string(element) + " is out of bounds.");
+            throw out_of_range("The element goes beyond the universal set.");
         }
     }
 
     // Видалення елемента
-    void remove(int element) 
+    void remove(size_t element) 
     {
-        if (element >= 0 && element < max_size) 
+        if (element < universe_size) 
         {
-            set &= ~(1 << element);
+            vector[element] = 0;
         }
         else 
         {
-            throw invalid_argument("Element " + to_string(element) + " is out of bounds.");
+            throw out_of_range("The element goes beyond the universal set.");
         }
     }
 
-    // Перевірка наявності елемента
-    bool contains(int element) const 
+    // Перевірка на наявність елемента
+    bool contains(size_t element) const 
     {
-        if (element >= 0 && element < max_size) 
+        if (element < universe_size) 
         {
-            return (set & (1 << element)) != 0;
+            return vector[element] == 1;
         }
         else 
         {
-            throw invalid_argument("Element " + to_string(element) + " is out of bounds.");
+            throw out_of_range("The element goes beyond the universal set.");
         }
     }
 
     // Об'єднання множин
-    BitSet unionSet(const BitSet& other) const 
+    BinaryVectorSet union_set(const BinaryVectorSet& other) const 
     {
-        if (max_size != other.max_size)
+        if (universe_size != other.universe_size) 
         {
-            throw invalid_argument("Sets must have the same max size.");
+            throw invalid_argument("The sizes of universal sets must be the same.");
         }
-        BitSet result(max_size);
-        result.set = set | other.set;
+        BinaryVectorSet result(universe_size);
+        for (size_t i = 0; i < universe_size; ++i) 
+        {
+            result.vector[i] = vector[i] | other.vector[i];
+        }
         return result;
     }
 
     // Перетин множин
-    BitSet intersection(const BitSet& other) const 
+    BinaryVectorSet intersection(const BinaryVectorSet& other) const 
     {
-        if (max_size != other.max_size) 
+        if (universe_size != other.universe_size) 
         {
-            throw invalid_argument("Sets must have the same max size.");
+            throw invalid_argument("The sizes of universal sets must be the same.");
         }
-        BitSet result(max_size);
-        result.set = set & other.set;
+        BinaryVectorSet result(universe_size);
+        for (size_t i = 0; i < universe_size; ++i) 
+        {
+            result.vector[i] = vector[i] & other.vector[i];
+        }
         return result;
     }
 
     // Різниця множин
-    BitSet difference(const BitSet& other) const
+    BinaryVectorSet difference(const BinaryVectorSet& other) const 
     {
-        if (max_size != other.max_size) 
+        if (universe_size != other.universe_size) 
         {
-            throw invalid_argument("Sets must have the same max size.");
+            throw invalid_argument("The sizes of universal sets must be the same.");
         }
-        BitSet result(max_size);
-        result.set = set & ~other.set;
+        BinaryVectorSet result(universe_size);
+        for (size_t i = 0; i < universe_size; ++i) 
+        {
+            result.vector[i] = vector[i] & ~other.vector[i];
+        }
         return result;
     }
 
-    // Перетворення в строку
-    string toString() const 
+    // Рядкове представлення множини
+    string to_string() const
     {
-        stringstream ss;
-        ss << "{";
+        ostringstream oss;
+        oss << "{";
         bool first = true;
-        for (int i = 0; i < max_size; ++i) 
+        for (size_t i = 0; i < universe_size; ++i) 
         {
-            if (contains(i))
+            if (vector[i] == 1) 
             {
                 if (!first) 
                 {
-                    ss << ", ";
+                    oss << ", ";
                 }
-                ss << i;
+                oss << i;
                 first = false;
             }
         }
-        ss << "}";
-        return ss.str();
+        oss << "}";
+        return oss.str();
     }
 };
 
 void lab_4_task_1() 
 {
-    BitSet bitSet1(10);
-    BitSet bitSet2(10);
+    size_t universe_size = 10; // Розмір універсальної множини
+    BinaryVectorSet set1(universe_size);
+    BinaryVectorSet set2(universe_size);
 
-    bitSet1.add(1);
-    bitSet1.add(3);
-    bitSet1.add(5);
+    set1.add(1);
+    set1.add(3);
+    set1.add(5);
 
-    bitSet2.add(3);
-    bitSet2.add(4);
-    bitSet2.add(5);
+    set2.add(3);
+    set2.add(4);
+    set2.add(5);
 
-    cout << "Set 1: " << bitSet1.toString() << endl;
-    cout << "Set 2: " << bitSet2.toString() << endl;
+    cout << "Set 1: " << set1.to_string() << endl;
+    cout << "Set 2: " << set2.to_string() << endl;
 
-    BitSet unionSet = bitSet1.unionSet(bitSet2);
-    cout << "union: " << unionSet.toString() << endl;
+    BinaryVectorSet union_set = set1.union_set(set2);
+    cout << "association: " << union_set.to_string() << endl;
 
-    BitSet intersectionSet = bitSet1.intersection(bitSet2);
-    cout << "intersection: " << intersectionSet.toString() << endl;
+    BinaryVectorSet intersection_set = set1.intersection(set2);
+    cout << "intersection : " << intersection_set.to_string() << endl;
 
-    BitSet differenceSet = bitSet1.difference(bitSet2);
-    cout << "Difference: " << differenceSet.toString() << endl;
-
+    BinaryVectorSet difference_set = set1.difference(set2);
+    cout << "difference: " << difference_set.to_string() << endl;
 }
